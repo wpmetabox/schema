@@ -1,0 +1,25 @@
+{
+    "$schema": "https://raw.githubusercontent.com/wpmetabox/schema/refs/heads/main/schema.json",
+    "id": "contact",
+    "title": "Contact Information",
+    "fields": {
+        "name": {
+            "id": "name",
+            "type": "text",
+            "name": "Name"
+        },
+        "email": {
+            "id": "email",
+            "type": "text",
+            "name": "Email"
+        },
+        "phone": {
+            "id": "phone",
+            "type": "text",
+            "name": "Phone",
+            "attributes": {
+                "type": "tel"
+            }
+        }
+    }
+}
