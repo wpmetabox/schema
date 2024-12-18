@@ -478,10 +478,10 @@
             "type": "string"
         },
         "visible": {
-            "$ref": "#/definitions/visible"
+            "$ref": "#/definitions/conditionalLogicStatements"
         },
         "hidden": {
-            "$ref": "#/definitions/hidden"
+            "$ref": "#/definitions/conditionalLogicStatements"
         },
         "additionalProperties": true
     },
