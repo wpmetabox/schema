@@ -3,31 +3,38 @@
     "title": "Meta Box",
     "type": "object",
     "description": "WordPress Custom Fields and Custom Meta Boxes Framework",
-    "properties": {
-        "$schema": {
-            "type": "string"
-        },
-        "id": {
-            "type": "string",
-            "description": "ID, must be unique. Optional. If it's absent, it will be generated from the title."
-        },
-        "title": {
-            "type": "string",
-            "description": "Title of the meta box. Required"
+    "definitions": {
+        "//": {
+            "reference": "https://docs.metabox.io/creating-fields-with-code/",
+            "fieldsReference": "https://docs.metabox.io/fields/"
         },
         "geo": {
+            "description": "Enable Place Autocomplete for the address field. Default is false.",
             "oneOf": [
                 {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Place Autocomplete for the address field. Default is false."
                 },
                 {
                     "type": "object",
                     "properties": {
                         "api_key": {
-                            "type": "string"
+                            "type": "string",
+                            "description": "Google Maps API key."
                         },
                         "types": {
-                            "type": "array"
+                            "type": "array",
+                            "description": "Types of places to search for.",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "geocode",
+                                    "address",
+                                    "establishment",
+                                    "(regions)",
+                                    "(cities)"
+                                ]
+                            }
                         },
                         "componentRestrictions": {
                             "type": "object",
@@ -76,6 +83,22 @@
                     }
                 }
             ]
+        }
+    },
+    "properties": {
+        "$schema": {
+            "type": "string"
+        },
+        "id": {
+            "type": "string",
+            "description": "ID, must be unique. Optional. If it's absent, it will be generated from the title."
+        },
+        "title": {
+            "type": "string",
+            "description": "Title of the meta box. Required"
+        },
+        "geo": {
+            "$ref": "#/definitions/geo"
         },
         "object_type": {
             "type": "string"
@@ -398,6 +421,9 @@
                 }
             },
             "additionalProperties": true
+        },
+        "version": {
+            "type": "string"
         },
         "additionalProperties": true
     },
