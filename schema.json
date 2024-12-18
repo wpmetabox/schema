@@ -85,48 +85,45 @@
             ]
         },
         "conditionalLogicStatements": {
-            "type": "array",
-            "items": {
-                "oneOf": [
-                    {
-                        "type": "string",
-                        "description": "Simple condition, [name, operator, value]."
-                    },
-                    {
+            "oneOf": [
+                {
+                    "type": "string",
+                    "description": "Simple condition, [name, operator, value]."
+                },
+                {
+                    "type": "array",
+                    "description": "Compound statements [[name1, operator1, value1], [name2, operator2,value2], ...] with AND relation",
+                    "items": {
                         "type": "array",
-                        "description": "Compound statements [[name1, operator1, value1], [name2, operator2,value2], ...] with AND relation",
                         "items": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    {
-                        "type": "object",
-                        "description": "Compound statements with selected relation",
-                        "properties": {
-                            "when": {
-                                "type": "array",
-                                "description": "Compound statements [[name1, operator1, value1], [name2, operator2,value2], ...] with AND relation",
-                                "items": {
-                                    "type": "array",
-                                    "items": {
-                                        "type": "string"
-                                    }
-                                }
-                            },
-                            "relation": {
-                                "type": "string",
-                                "enum": [
-                                    "AND",
-                                    "OR"
-                                ]
-                            }
+                            "type": "string"
                         }
                     }
-                ]
-            }
+                },
+                {
+                    "type": "object",
+                    "description": "Compound statements with selected relation",
+                    "properties": {
+                        "when": {
+                            "type": "array",
+                            "description": "Compound statements [[name1, operator1, value1], [name2, operator2,value2], ...] with AND relation",
+                            "items": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "relation": {
+                            "type": "string",
+                            "enum": [
+                                "AND",
+                                "OR"
+                            ]
+                        }
+                    }
+                }
+            ]
         },
         "visible": {
             "$ref": "#/definitions/conditionalLogicStatements"
