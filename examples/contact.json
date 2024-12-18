@@ -2,6 +2,7 @@
     "$schema": "https://raw.githubusercontent.com/wpmetabox/schema/refs/heads/main/schema.json",
     "id": "contact",
     "title": "Contact Information",
+    "geo": true,
     "fields": {
         "name": {
             "id": "name",

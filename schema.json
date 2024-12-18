@@ -144,6 +144,57 @@
             "type": "string",
             "description": "Title of the meta box. Required"
         },
+        "type": {
+            "type": "string",
+            "enum": [
+                "meta-box",
+                "block"
+            ]
+        },
+        "settings_page": {
+            "type": "string",
+            "description": "Settings page ID. Optional. If it's present, the meta box will be shown on the settings page."
+        },
+        "tabs": {
+            "type": "object",
+            "description": "ID - Title pairs of tabs. Optional. If it's present, the meta box will be shown in tabs.",
+            "patternProperties": {
+                "^.*$": {
+                    "oneOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "object",
+                            "properties": {
+                                "label": {
+                                    "type": "string",
+                                    "description": "Tab title"
+                                },
+                                "icon": {
+                                    "type": "string",
+                                    "description": "Tab icon, support dashicons (default), can be class name or URL for custom icon"
+                                }
+                            },
+                            "required": [
+                                "label"
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+        "tab_style": {
+            "type": "string",
+            "enum": [
+                "default",
+                "box",
+                "left"
+            ]
+        },
+        "tab_default_active": {
+            "type": "string"
+        },
         "geo": {
             "$ref": "#/definitions/geo"
         },
@@ -406,6 +457,16 @@
                         },
                         "hide_from_front": {
                             "type": "boolean"
+                        },
+                        "limit": {
+                            "type": "integer"
+                        },
+                        "limit_type": {
+                            "type": "string",
+                            "enum": [
+                                "characters",
+                                "word"
+                            ]
                         },
                         "before": {
                             "type": "string"
