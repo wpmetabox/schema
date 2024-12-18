@@ -424,10 +424,10 @@
                             "default": true
                         },
                         "visible": {
-                            "type": "array"
+                            "$ref": "#/definitions/conditionalLogicStatements"
                         },
                         "hidden": {
-                            "type": "array"
+                            "$ref": "#/definitions/conditionalLogicStatements"
                         }
                     },
                     "required": [
