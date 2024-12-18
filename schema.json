@@ -82,8 +82,7 @@
                         }
                     }
                 }
-            ],
-            "default": false
+            ]
         },
         "conditionalLogicStatements": {
             "type": "array",
@@ -102,60 +101,38 @@
                                 "type": "string"
                             }
                         }
+                    },
+                    {
+                        "type": "object",
+                        "description": "Compound statements with selected relation",
+                        "properties": {
+                            "when": {
+                                "type": "array",
+                                "description": "Compound statements [[name1, operator1, value1], [name2, operator2,value2], ...] with AND relation",
+                                "items": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "relation": {
+                                "type": "string",
+                                "enum": [
+                                    "AND",
+                                    "OR"
+                                ]
+                            }
+                        }
                     }
                 ]
             }
         },
-        "conditionalLogicWithRelation": {
-            "type": "object",
-            "description": "Compound statements with selected relation",
-            "properties": {
-                "when": {
-                    "$ref": "#/definitions/conditionalLogicStatements"
-                },
-                "relation": {
-                    "type": "string",
-                    "enum": [
-                        "AND",
-                        "OR"
-                    ]
-                }
-            }
+        "visible": {
+            "$ref": "#/definitions/conditionalLogicStatements"
         },
-        "conditionalLogic": {
-            "type": "object",
-            "properties": {
-                "visible": {
-                    "oneOf": [
-                        {
-                            "$ref": "#/definitions/conditionalLogicStatements"
-                        },
-                        {
-                            "$ref": "#/definitions/conditionalLogicWithRelation"
-                        }
-                    ]
-                },
-                "hidden": {
-                    "oneOf": [
-                        {
-                            "$ref": "#/definitions/conditionalLogicStatements"
-                        },
-                        {
-                            "$ref": "#/definitions/conditionalLogicWithRelation"
-                        }
-                    ]
-                },
-                "required": {
-                    "oneOf": [
-                        {
-                            "required": ["visible"]
-                        },
-                        {
-                            "required": ["hidden"]
-                        }
-                    ]
-                }
-            }
+        "hidden": {
+            "$ref": "#/definitions/conditionalLogicStatements"
         }
     },
     "properties": {
@@ -504,10 +481,10 @@
             "type": "string"
         },
         "visible": {
-            "$ref": "#/definitions/conditionalLogic"
+            "$ref": "#/definitions/visible"
         },
         "hidden": {
-            "$ref": "#/definitions/conditionalLogic"
+            "$ref": "#/definitions/hidden"
         },
         "additionalProperties": true
     },
