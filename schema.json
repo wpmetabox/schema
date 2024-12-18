@@ -503,27 +503,17 @@
         "version": {
             "type": "string"
         },
+        "visible": {
+            "$ref": "#/definitions/conditionalLogic"
+        },
+        "hidden": {
+            "$ref": "#/definitions/conditionalLogic"
+        },
         "additionalProperties": true
     },
     "required": [
         "id",
         "title",
         "fields"
-    ],
-    "allOf": [
-        {
-            "if": {
-                "properties": {
-                    "geo": {
-                        "type": "object"
-                    }
-                }
-            },
-            "then": {
-                "required": [
-                    "api_key"
-                ]
-            }
-        }
     ]
 }
