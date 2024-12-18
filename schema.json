@@ -82,7 +82,80 @@
                         }
                     }
                 }
-            ]
+            ],
+            "default": false
+        },
+        "conditionalLogicStatements": {
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "type": "string",
+                        "description": "Simple condition, [name, operator, value]."
+                    },
+                    {
+                        "type": "array",
+                        "description": "Compound statements [[name1, operator1, value1], [name2, operator2,value2], ...] with AND relation",
+                        "items": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "conditionalLogicWithRelation": {
+            "type": "object",
+            "description": "Compound statements with selected relation",
+            "properties": {
+                "when": {
+                    "$ref": "#/definitions/conditionalLogicStatements"
+                },
+                "relation": {
+                    "type": "string",
+                    "enum": [
+                        "AND",
+                        "OR"
+                    ]
+                }
+            }
+        },
+        "conditionalLogic": {
+            "type": "object",
+            "properties": {
+                "visible": {
+                    "oneOf": [
+                        {
+                            "$ref": "#/definitions/conditionalLogicStatements"
+                        },
+                        {
+                            "$ref": "#/definitions/conditionalLogicWithRelation"
+                        }
+                    ]
+                },
+                "hidden": {
+                    "oneOf": [
+                        {
+                            "$ref": "#/definitions/conditionalLogicStatements"
+                        },
+                        {
+                            "$ref": "#/definitions/conditionalLogicWithRelation"
+                        }
+                    ]
+                },
+                "required": {
+                    "oneOf": [
+                        {
+                            "required": ["visible"]
+                        },
+                        {
+                            "required": ["hidden"]
+                        }
+                    ]
+                }
+            }
         }
     },
     "properties": {
@@ -407,7 +480,12 @@
                             "if": {
                                 "properties": {
                                     "type": {
-                                        "enum": ["select", "select_advanced", "radio", "checkbox_list"]
+                                        "enum": [
+                                            "select",
+                                            "select_advanced",
+                                            "radio",
+                                            "checkbox_list"
+                                        ]
                                     }
                                 }
                             },
