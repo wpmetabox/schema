@@ -130,6 +130,19 @@
         },
         "hidden": {
             "$ref": "#/definitions/conditionalLogicStatements"
+        },
+        "validation": {
+            "type": "object",
+            "properties": {
+                "rules": {
+                    "type": "object",
+                    "description": "Validation rules. Key is the rule name, value is the rule value."
+                },
+                "messages": {
+                    "type": "object",
+                    "description": "Validation messages. Key is the rule name, value is the message."
+                }
+            }
         }
     },
     "properties": {
@@ -255,6 +268,49 @@
         "media_modal": {
             "type": "boolean"
         },
+        "columns": {
+            "type": "object",
+            "description": "Columns settings if you want to show fields in columns.",
+            "patternProperties": {
+                "^.*$": {
+                    "oneOf": [
+                        {
+                            "type": "integer",
+                            "description": "Column size (1-12)."
+                        },
+                        {
+                            "type": "object",
+                            "properties": {
+                                "size": {
+                                    "type": "integer",
+                                    "description": "Column size (1-12)."
+                                },
+                                "class": {
+                                    "type": "string",
+                                    "description": "Custom CSS class for the column"
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "storage_type": {
+            "description": "Storage type of the meta box. Default is post_meta.",
+            "type": "string",
+            "enum": [
+                "post_meta",
+                "user_meta",
+                "term_meta",
+                "comment_meta",
+                "settings_page",
+                "custom_table"
+            ]
+        },
+        "table": {
+            "type": "string",
+            "description": "Table name for custom table storage type."
+        },
         "custom_table": {
             "type": "object",
             "properties": {
@@ -307,10 +363,7 @@
                     "properties": {
                         "attributes": {
                             "type": "object",
-                            "description": "HTML attributes of the field"
-                        },
-                        "_id": {
-                            "type": "string"
+                            "description": "Custom HTML5 attributes of the field"
                         },
                         "name": {
                             "type": "string"
@@ -456,7 +509,12 @@
                             ]
                         },
                         "hide_from_front": {
-                            "type": "boolean"
+                            "type": "boolean",
+                            "description": "Hide the field from the front end submission form."
+                        },
+                        "hide_from_rest": {
+                            "type": "boolean",
+                            "description": "Hide the field from REST API response."
                         },
                         "limit": {
                             "type": "integer"
@@ -489,6 +547,10 @@
                         },
                         "hidden": {
                             "$ref": "#/definitions/conditionalLogicStatements"
+                        },
+                        "tab": {
+                            "type": "string",
+                            "description": "Tab ID to show the field in."
                         }
                     },
                     "required": [
@@ -519,7 +581,8 @@
                                             "select",
                                             "select_advanced",
                                             "radio",
-                                            "checkbox_list"
+                                            "checkbox_list",
+                                            "image_select"
                                         ]
                                     }
                                 }
@@ -538,11 +601,17 @@
         "version": {
             "type": "string"
         },
+        "revision": {
+            "type": "boolean"
+        },
         "visible": {
             "$ref": "#/definitions/conditionalLogicStatements"
         },
         "hidden": {
             "$ref": "#/definitions/conditionalLogicStatements"
+        },
+        "validation": {
+            "$ref": "#/definitions/validation"
         },
         "additionalProperties": true
     },
