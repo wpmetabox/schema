@@ -94,10 +94,17 @@
                     "type": "array",
                     "description": "Compound statements [[name1, operator1, value1], [name2, operator2,value2], ...] with AND relation",
                     "items": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        }
+                        "oneOf": [
+                            {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            {
+                                "type": "string"
+                            }
+                        ]
                     }
                 },
                 {

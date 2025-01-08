@@ -1,5 +1,5 @@
 {
-    "$schema": "https://raw.githubusercontent.com/wpmetabox/schema/refs/heads/main/schema.json",
+    "$schema": "file:///home/tan/Sites/schema/schema.json",
     "id": "contact",
     "title": "Contact Information",
     "geo": true,
@@ -29,7 +29,8 @@
             "name": "Phone",
             "attributes": {
                 "type": "tel"
-            }
+            },
+            "visible": ["gender", "female"]
         }
     }
 }
