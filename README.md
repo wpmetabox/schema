@@ -5,7 +5,7 @@ WIP: Schema definition for Meta Box, usefull for code completion and validation.
 Schema Link:
 
 ```
-https://raw.githubusercontent.com/wpmetabox/schema/refs/heads/main/schema.json
+https://schemas.metabox.io/field-group.json
 ```
 
 ## Development

@@ -1,6 +1,6 @@
 # AI Prompt Examples
 
-> Generate a slider meta box which let people create slides, each slide contain image, title, description, cta button. Here is the schema: https://raw.githubusercontent.com/wpmetabox/schema/refs/heads/main/schema.json
+> Generate a slider meta box which let people create slides, each slide contain image, title, description, cta button. Here is the schema: https://schemas.metabox.io/field-group.json
 
 Output (VS Code \ Language: PHP):
 

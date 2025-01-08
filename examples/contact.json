@@ -1,5 +1,5 @@
 {
-    "$schema": "file:///home/tan/Sites/schema/schema.json",
+    "$schema": "https://schemas.metabox.io/field-group.json",
     "id": "contact",
     "title": "Contact Information",
     "geo": true,
