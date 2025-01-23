@@ -215,6 +215,9 @@
         "tab_default_active": {
             "type": "string"
         },
+        "tab_remember": {
+            "type": "boolean"
+        },
         "geo": {
             "$ref": "#/definitions/geo"
         },
@@ -363,245 +366,243 @@
             "additionalProperties": true
         },
         "fields": {
-            "type": "object",
-            "patternProperties": {
-                "^.*$": {
-                    "type": "object",
-                    "properties": {
-                        "attributes": {
-                            "type": "object",
-                            "description": "Custom HTML5 attributes of the field"
-                        },
-                        "name": {
-                            "type": "string"
-                        },
-                        "id": {
-                            "type": "string"
-                        },
-                        "type": {
-                            "type": "string",
-                            "enum": [
-                                "autocomplete",
-                                "background",
-                                "button_group",
-                                "button",
-                                "checkbox_list",
-                                "checkbox",
-                                "color",
-                                "custom_html",
-                                "date",
-                                "datetime",
-                                "divider",
-                                "fieldset_text",
-                                "file_advanced",
-                                "file_input",
-                                "file_upload",
-                                "file",
-                                "heading",
-                                "hidden",
-                                "icon",
-                                "image_advanced",
-                                "image_select",
-                                "image_upload",
-                                "image",
-                                "key_value",
-                                "map",
-                                "number",
-                                "oembed",
-                                "osm",
-                                "password",
-                                "post",
-                                "radio",
-                                "range",
-                                "select_advanced",
-                                "select",
-                                "sidebar",
-                                "single_image",
-                                "slider",
-                                "switch",
-                                "taxonomy_advanced",
-                                "taxonomy",
-                                "text_list",
-                                "text",
-                                "textarea",
-                                "time",
-                                "user",
-                                "video",
-                                "wysiwyg",
-                                "group"
-                            ]
-                        },
-                        "options": {
-                            "type": "object",
-                            "description": "Options of the field. Required for some field types like select, radio, checkbox_list, etc."
-                        },
-                        "label_description": {
-                            "type": "string"
-                        },
-                        "desc": {
-                            "type": "string"
-                        },
-                        "std": {
-                            "type": "string"
-                        },
-                        "placeholder": {
-                            "type": "string"
-                        },
-                        "size": {
-                            "type": "string"
-                        },
-                        "required": {
-                            "type": "boolean"
-                        },
-                        "disabled": {
-                            "type": "boolean"
-                        },
-                        "readonly": {
-                            "type": "boolean"
-                        },
-                        "prepend": {
-                            "type": "string"
-                        },
-                        "append": {
-                            "type": "string"
-                        },
-                        "datalist_choices": {
-                            "type": "string"
-                        },
-                        "clone": {
-                            "type": "boolean"
-                        },
-                        "sort_clone": {
-                            "type": "boolean"
-                        },
-                        "clone_default": {
-                            "type": "boolean"
-                        },
-                        "clone_as_multiple": {
-                            "type": "boolean"
-                        },
-                        "clone_empty_start": {
-                            "type": "boolean"
-                        },
-                        "min_clone": {
-                            "type": "string"
-                        },
-                        "max_clone": {
-                            "type": "string"
-                        },
-                        "add_button": {
-                            "type": "string"
-                        },
-                        "tooltip": {
-                            "type": "object",
-                            "properties": {
-                                "enable": {
-                                    "type": "boolean"
-                                },
-                                "icon": {
-                                    "type": "string"
-                                },
-                                "position": {
-                                    "type": "string"
-                                },
-                                "content": {
-                                    "type": "string"
-                                }
+            "type": "array",
+            "description": "Fields in the meta box",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "attributes": {
+                        "type": "object",
+                        "description": "Custom HTML5 attributes of the field"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "autocomplete",
+                            "background",
+                            "button_group",
+                            "button",
+                            "checkbox_list",
+                            "checkbox",
+                            "color",
+                            "custom_html",
+                            "date",
+                            "datetime",
+                            "divider",
+                            "fieldset_text",
+                            "file_advanced",
+                            "file_input",
+                            "file_upload",
+                            "file",
+                            "heading",
+                            "hidden",
+                            "icon",
+                            "image_advanced",
+                            "image_select",
+                            "image_upload",
+                            "image",
+                            "key_value",
+                            "map",
+                            "number",
+                            "oembed",
+                            "osm",
+                            "password",
+                            "post",
+                            "radio",
+                            "range",
+                            "select_advanced",
+                            "select",
+                            "sidebar",
+                            "single_image",
+                            "slider",
+                            "switch",
+                            "taxonomy_advanced",
+                            "taxonomy",
+                            "text_list",
+                            "text",
+                            "textarea",
+                            "time",
+                            "user",
+                            "video",
+                            "wysiwyg",
+                            "group"
+                        ]
+                    },
+                    "options": {
+                        "type": "object",
+                        "description": "Options of the field. Required for some field types like select, radio, checkbox_list, etc."
+                    },
+                    "label_description": {
+                        "type": "string"
+                    },
+                    "desc": {
+                        "type": "string"
+                    },
+                    "std": {
+                        "type": "string"
+                    },
+                    "placeholder": {
+                        "type": "string"
+                    },
+                    "size": {
+                        "type": "string"
+                    },
+                    "required": {
+                        "type": "boolean"
+                    },
+                    "disabled": {
+                        "type": "boolean"
+                    },
+                    "readonly": {
+                        "type": "boolean"
+                    },
+                    "prepend": {
+                        "type": "string"
+                    },
+                    "append": {
+                        "type": "string"
+                    },
+                    "datalist_choices": {
+                        "type": "string"
+                    },
+                    "clone": {
+                        "type": "boolean"
+                    },
+                    "sort_clone": {
+                        "type": "boolean"
+                    },
+                    "clone_default": {
+                        "type": "boolean"
+                    },
+                    "clone_as_multiple": {
+                        "type": "boolean"
+                    },
+                    "clone_empty_start": {
+                        "type": "boolean"
+                    },
+                    "min_clone": {
+                        "type": "string"
+                    },
+                    "max_clone": {
+                        "type": "string"
+                    },
+                    "add_button": {
+                        "type": "string"
+                    },
+                    "tooltip": {
+                        "type": "object",
+                        "properties": {
+                            "enable": {
+                                "type": "boolean"
                             },
+                            "icon": {
+                                "type": "string"
+                            },
+                            "position": {
+                                "type": "string"
+                            },
+                            "content": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "enable",
+                            "icon",
+                            "position",
+                            "content"
+                        ]
+                    },
+                    "hide_from_front": {
+                        "type": "boolean",
+                        "description": "Hide the field from the front end submission form."
+                    },
+                    "hide_from_rest": {
+                        "type": "boolean",
+                        "description": "Hide the field from REST API response."
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "limit_type": {
+                        "type": "string",
+                        "enum": [
+                            "characters",
+                            "word"
+                        ]
+                    },
+                    "before": {
+                        "type": "string"
+                    },
+                    "after": {
+                        "type": "string"
+                    },
+                    "class": {
+                        "type": "string"
+                    },
+                    "sanitize_callback": {
+                        "type": "string"
+                    },
+                    "save_field": {
+                        "type": "boolean",
+                        "default": true
+                    },
+                    "visible": {
+                        "$ref": "#/definitions/conditionalLogicStatements"
+                    },
+                    "hidden": {
+                        "$ref": "#/definitions/conditionalLogicStatements"
+                    },
+                    "tab": {
+                        "type": "string",
+                        "description": "Tab ID to show the field in."
+                    }
+                },
+                "required": [
+                    "id",
+                    "type"
+                ],
+                "allOf": [
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": "group"
+                                }
+                            }
+                        },
+                        "then": {
                             "required": [
-                                "enable",
-                                "icon",
-                                "position",
-                                "content"
+                                "fields"
                             ]
-                        },
-                        "hide_from_front": {
-                            "type": "boolean",
-                            "description": "Hide the field from the front end submission form."
-                        },
-                        "hide_from_rest": {
-                            "type": "boolean",
-                            "description": "Hide the field from REST API response."
-                        },
-                        "limit": {
-                            "type": "integer"
-                        },
-                        "limit_type": {
-                            "type": "string",
-                            "enum": [
-                                "characters",
-                                "word"
-                            ]
-                        },
-                        "before": {
-                            "type": "string"
-                        },
-                        "after": {
-                            "type": "string"
-                        },
-                        "class": {
-                            "type": "string"
-                        },
-                        "sanitize_callback": {
-                            "type": "string"
-                        },
-                        "save_field": {
-                            "type": "boolean",
-                            "default": true
-                        },
-                        "visible": {
-                            "$ref": "#/definitions/conditionalLogicStatements"
-                        },
-                        "hidden": {
-                            "$ref": "#/definitions/conditionalLogicStatements"
-                        },
-                        "tab": {
-                            "type": "string",
-                            "description": "Tab ID to show the field in."
                         }
                     },
-                    "required": [
-                        "name",
-                        "id",
-                        "type"
-                    ],
-                    "allOf": [
-                        {
-                            "if": {
-                                "properties": {
-                                    "type": {
-                                        "const": "group"
-                                    }
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "enum": [
+                                        "select",
+                                        "select_advanced",
+                                        "radio",
+                                        "checkbox_list",
+                                        "image_select"
+                                    ]
                                 }
-                            },
-                            "then": {
-                                "required": [
-                                    "fields"
-                                ]
                             }
                         },
-                        {
-                            "if": {
-                                "properties": {
-                                    "type": {
-                                        "enum": [
-                                            "select",
-                                            "select_advanced",
-                                            "radio",
-                                            "checkbox_list",
-                                            "image_select"
-                                        ]
-                                    }
-                                }
-                            },
-                            "then": {
-                                "required": [
-                                    "options"
-                                ]
-                            }
+                        "then": {
+                            "required": [
+                                "options"
+                            ]
                         }
-                    ]
-                }
+                    }
+                ]
             },
             "additionalProperties": true
         },

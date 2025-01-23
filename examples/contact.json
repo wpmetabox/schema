@@ -1,36 +1,53 @@
 {
-    "$schema": "https://schemas.metabox.io/field-group.json",
+    "$schema": "file:///home/tan/Sites/schema/schema.json",
     "id": "contact",
     "title": "Contact Information",
     "geo": true,
-    "fields": {
-        "name": {
+    "fields": [
+        {
             "id": "name",
+            "name": "name",
+            "title": "Name",
             "type": "text",
-            "name": "Name"
+            "required": true
         },
-        "gender": {
-            "id": "gender",
-            "name": "Gender",
-            "type": "radio",
-            "options": {
-                "male": "Male",
-                "female": "Female"
-            }
-        },
-        "email": {
+        {
             "id": "email",
-            "type": "text",
-            "name": "Email"
+            "title": "Email",
+            "type": "string",
+            "format": "email",
+            "required": true
         },
-        "phone": {
+        {
             "id": "phone",
-            "type": "text",
-            "name": "Phone",
-            "attributes": {
-                "type": "tel"
-            },
-            "visible": ["gender", "female"]
+            "title": "Phone",
+            "type": "string",
+            "format": "phone"
+        },
+        {
+            "id": "address",
+            "title": "Address",
+            "type": "string"
+        },
+        {
+            "id": "city",
+            "title": "City",
+            "type": "string"
+        },
+        {
+            "id": "state",
+            "title": "State",
+            "type": "string"
+        },
+        {
+            "id": "zip",
+            "title": "Zip",
+            "type": "string"
+        },
+        {
+            "id": "country",
+            "title": "Country",
+            "type": "string"
         }
-    }
+    ]
 }
