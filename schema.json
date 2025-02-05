@@ -113,7 +113,7 @@
                     "properties": {
                         "when": {
                             "type": "array",
-                            "description": "Compound statements [[name1, operator1, value1], [name2, operator2,value2], ...] with AND relation",
+                            "description": "Compound statements [[name1, operator1, value1], [name2, operator2,value2], ...] with and relation",
                             "items": {
                                 "type": "array",
                                 "items": {
@@ -124,8 +124,8 @@
                         "relation": {
                             "type": "string",
                             "enum": [
-                                "AND",
-                                "OR"
+                                "and",
+                                "or"
                             ]
                         }
                     }
