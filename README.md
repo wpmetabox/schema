@@ -1,11 +1,22 @@
 # Meta Box Schema
 
-WIP: Schema definition for Meta Box, usefull for code completion and validation.
+WIP: Schema definition for Meta Box, useful for code completion and validation.
 
-Schema Link:
+Schema Links:
 
+Meta Box
 ```
 https://schemas.metabox.io/field-group.json
+```
+
+Settings Page
+```
+https://schemas.metabox.io/settings-page.json
+```
+
+Relationships
+```
+https://schemas.metabox.io/relationships.json
 ```
 
 ## Development
