@@ -1,8 +1,8 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema",
-    "title": "Meta Box",
+    "title": "MB Settings Page",
     "type": "object",
-    "description": "WordPress Custom Fields and Custom Meta Boxes Framework",
+    "description": "MB Settings Page helps you create settings pages for your website. You can use it to create a theme options page, or a settings page for your plugin, or a custom settings page for clients' websites.",
     "definitions": {
         "//": {
             "reference": "https://docs.metabox.io/extensions/mb-settings-page/#using-code"
