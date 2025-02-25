@@ -1,0 +1,145 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema",
+    "title": "Meta Box",
+    "type": "object",
+    "description": "WordPress Custom Fields and Custom Meta Boxes Framework",
+    "definitions": {
+        "//": {
+            "reference": "https://docs.metabox.io/extensions/mb-settings-page/#using-code"
+        }
+    },
+    "properties": {
+        "$schema": {
+            "type": "string"
+        },
+        "id": {
+            "type": "string",
+            "description": "ID, must be unique. Optional. If it's absent, it will be generated from the title."
+        },
+        "option_name": {
+            "type": "string",
+            "description": "Option name where settings data is saved to. Optional. Takes id if missed. If you want to use theme mods, then set this to theme_mods_$themeslug."
+        },
+        "class": {
+            "type": "string",
+            "description": "Custom CSS for the wrapper div."
+        },
+        "menu_title": {
+            "type": "string",
+            "description": "Menu title. Optional. Takes page_title if missed."
+        },
+        "page_title": {
+            "type": "string",
+            "description": "Page title. Optional. Takes menu_title if missed. Note: either menu_title or page_title (or both) must have value."
+        },
+        "capability": {
+            "type": "string",
+            "description": "Required capability to access the settings page. Optional. Default edit_theme_options.",
+            "default": "edit_theme_options"
+        },
+        "icon_url": {
+            "type": "string",
+            "description": "The icon for the menu. Supports Dashicons (dashicons-icon-name), FontAwesome free (fa fa-home), SVG (data:image/svg+xml;base64...) and custom URL."
+        },
+        "position": {
+            "type": "integer",
+            "description": "Menu position (number). See below for the list of default WordPress menu positions.",
+            "default": 99
+        },
+        "parent": {
+            "type": "string",
+            "description": "The ID of the parent page, if you want the settings page to be a submenu. Optional. Can be a WordPress menu or custom settings page menu. See below for the list of WordPress page IDs."
+        },
+        "submenu_title": {
+            "type": "string",
+            "description": "Set this to the default submenu title (first submenu) if the settings page is a top-level menu. Optional."
+        },
+        "help_tabs": {
+            "type": "array",
+            "description": "Array of help tabs. Each tab is an array with title and content.",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "description": "Tab title."
+                    },
+                    "content": {
+                        "type": "string",
+                        "description": "Tab content. Accepts HTML."
+                    },
+                    "callback": {
+                        "type": "string",
+                        "description": "Callback function to display the tab content. The function must be in the global scope."
+                    },
+                    "priority": {
+                        "type": "integer",
+                        "description": "Tab priority. Default 10."
+                    }
+                }
+            }
+        },
+        "style": {
+            "type": "string",
+            "enum": ["boxes", "no-boxes"],
+            "description": "How do you want to style the settings page? Supports boxes which has same the style as normal WordPress meta boxes (like in the edit post screen) and no-boxes which has the same style as WordPress settings pages. In no-boxes style, each meta box is a section of the settings page."
+        },
+        "columns": {
+            "type": "integer",
+            "description": "The number of columns in the meta boxes. Can be 1 (the same as WordPress settings pages) or 2 (the same as the edit post screen).",
+            "default": 1,
+            "enum": [1, 2]
+        },
+        "tabs": {
+            "type": "array",
+            "description": "Array of tabs for the settings page.",
+            "items": {
+                "type": "object",
+                "patternProperties": {
+                    "^.*$": {
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            }
+                        ],
+                        "properties": {
+                            "label": {
+                                "type": "string",
+                                "description": "Tab label."
+                            },
+                            "icon": {
+                                "type": "string",
+                                "description": "Tab icon. Supports Dashicons (dashicons-icon-name), FontAwesome free (fa fa-home), SVG (data:image/svg+xml;base64...) and custom URL."
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "tab_style": {
+            "type": "string",
+            "enum": ["default", "left"],
+            "description": "Tab style. Default is default. Left is the style that the tabs are on the left side of the settings page."
+        },
+        "submit_button": {
+            "type": "string",
+            "description": "Submit button text. Optional. Default Save Changes."
+        },
+        "message": {
+            "type": "string",
+            "description": "Message to show after saving settings. Optional."
+        },
+        "customizer": {
+            "type": "boolean",
+            "description": "Whether to add the settings page to the customizer. Optional. Default false."
+        },
+        "customizer_only": {
+            "type": "boolean",
+            "description": "Whether to show the settings page only in the customizer. Optional. Default false."
+        },
+        "network": {
+            "type": "boolean",
+            "description": "Whether to show the settings page in the network admin. Optional. Default false."
+        }
+    }
+}
