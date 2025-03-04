@@ -448,7 +448,24 @@
                         "type": "string"
                     },
                     "placeholder": {
-                        "type": "string"
+                        "oneOf": [
+                            {
+                                "type": "string",
+                                "description": "Regular fields placeholder"
+                            },
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "key": {
+                                        "type": "string"
+                                    },
+                                    "value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "description": "Placeholder for key-value field"
+                            }
+                        ]
                     },
                     "size": {
                         "type": "string"
