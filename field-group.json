@@ -353,8 +353,8 @@
                 "text_domain": {
                     "type": "string"
                 },
-                "version": {
-                    "type": "string"
+                "modified": {
+                    "type": "number"
                 },
                 "function_name": {
                     "type": "string"
@@ -549,7 +549,7 @@
                     "limit_type": {
                         "type": "string",
                         "enum": [
-                            "characters",
+                            "character",
                             "word"
                         ]
                     },
@@ -623,8 +623,8 @@
             },
             "additionalProperties": true
         },
-        "version": {
-            "type": "string"
+        "modified": {
+            "type": "number"
         },
         "revision": {
             "type": "boolean"
