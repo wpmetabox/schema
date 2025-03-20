@@ -431,7 +431,8 @@
                             "user",
                             "video",
                             "wysiwyg",
-                            "group"
+                            "group",
+                            "signature"
                         ]
                     },
                     "options": {
@@ -468,7 +469,7 @@
                         ]
                     },
                     "size": {
-                        "type": "string"
+                        "type": "number"
                     },
                     "required": {
                         "type": "boolean"
@@ -503,14 +504,19 @@
                     "clone_empty_start": {
                         "type": "boolean"
                     },
+                    "multiple": {
+                        "type": "boolean",
+                        "description": "Allow multiple values. Default is false."
+                    },
                     "min_clone": {
-                        "type": "string"
+                        "type": "number"
                     },
                     "max_clone": {
-                        "type": "string"
+                        "type": "number"
                     },
                     "add_button": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Text for the 'Add' button in cloneable fields."
                     },
                     "tooltip": {
                         "type": "object",
@@ -578,12 +584,16 @@
                     "tab": {
                         "type": "string",
                         "description": "Tab ID to show the field in."
+                    },
+                    "columns": {
+                        "type": "integer",
+                        "description": "Column size (1-12)."
+                    },
+                    "column": {
+                        "type": "string",
+                        "description": "Match the field with a column in the columns settings."
                     }
                 },
-                "required": [
-                    "id",
-                    "type"
-                ],
                 "allOf": [
                     {
                         "if": {
