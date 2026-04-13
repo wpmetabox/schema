@@ -386,6 +386,7 @@
                         "enum": [
                             "autocomplete",
                             "background",
+                            "block_editor",
                             "button_group",
                             "button",
                             "checkbox_list",
@@ -395,6 +396,7 @@
                             "date",
                             "datetime",
                             "divider",
+                            "email",
                             "fieldset_text",
                             "file_advanced",
                             "file_input",
