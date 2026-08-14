@@ -327,7 +327,7 @@
             "properties": {
                 "enable": {
                     "type": "boolean",
-                    "description": "Whether custom table storage is enabled. For field groups on a code-registered model, this also means MB Builder may manage that model table."
+                    "description": "Whether custom table storage is enabled. For field groups on a code-registered model, this also means the field group may manage that model table."
                 },
                 "name": {
                     "type": "string"
