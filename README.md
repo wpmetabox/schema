@@ -19,6 +19,11 @@ Relationships
 https://schemas.metabox.io/relationships.json
 ```
 
+Custom Model
+```
+https://schemas.metabox.io/custom-model.json
+```
+
 ## Development
 
 During development, you'll want to use local path so that you can test the schema with your local changes.

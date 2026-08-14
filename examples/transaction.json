@@ -1,0 +1,29 @@
+{
+    "$schema": "https://schemas.metabox.io/custom-model.json",
+    "id": "transaction",
+    "table": "transactions",
+    "labels": {
+        "name": "Transactions",
+        "singular_name": "Transaction",
+        "menu_name": "Transactions",
+        "add_new": "Add New",
+        "add_new_item": "Add New Transaction",
+        "edit_item": "Edit Transaction",
+        "search_items": "Search Transactions",
+        "not_found": "No transactions found",
+        "all_items": "All Transactions",
+        "item_updated": "Transaction updated",
+        "item_added": "Transaction added",
+        "item_deleted": "Transaction deleted"
+    },
+    "menu_icon": "dashicons-money-alt",
+    "capability": "edit_posts",
+    "supports": ["author", "published_date", "modified_date"],
+    "columns": {
+        "amount": "DECIMAL(10,2)",
+        "gateway": "VARCHAR(50)",
+        "status": "VARCHAR(20)",
+        "email": "VARCHAR(255)"
+    },
+    "keys": ["status", "email"]
+}

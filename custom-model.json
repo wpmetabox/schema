@@ -1,0 +1,138 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema",
+    "title": "MB Custom Model",
+    "type": "object",
+    "description": "MB Custom Model defines a custom content type stored in a custom database table. Use it with MB Custom Table to register models via code or import/export from MB Builder.",
+    "definitions": {
+        "//": {
+            "reference": "https://docs.metabox.io/extensions/mb-custom-table/#custom-models"
+        }
+    },
+    "required": ["id", "table", "labels"],
+    "properties": {
+        "$schema": {
+            "type": "string"
+        },
+        "id": {
+            "type": "string",
+            "description": "Model ID (slug). Must be unique. Used as the first argument of mb_register_model()."
+        },
+        "name": {
+            "type": "string",
+            "description": "Alias of id. Kept for compatibility with stored model args. Prefer id."
+        },
+        "table": {
+            "type": "string",
+            "description": "Custom database table name for the model. Required. Do not add an ID column; the plugin creates it automatically."
+        },
+        "labels": {
+            "type": "object",
+            "description": "Labels for the model admin UI. Required.",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "General name for the model, usually plural."
+                },
+                "singular_name": {
+                    "type": "string",
+                    "description": "Name for one item of this model."
+                },
+                "menu_name": {
+                    "type": "string",
+                    "description": "Label for the menu name. Default is the same as name."
+                },
+                "add_new": {
+                    "type": "string",
+                    "description": "Label for Add New models."
+                },
+                "add_new_item": {
+                    "type": "string",
+                    "description": "Label for adding a new singular item."
+                },
+                "edit_item": {
+                    "type": "string",
+                    "description": "Label for editing a singular item."
+                },
+                "search_items": {
+                    "type": "string",
+                    "description": "Label for searching plural items."
+                },
+                "not_found": {
+                    "type": "string",
+                    "description": "Label used when no items are found."
+                },
+                "all_items": {
+                    "type": "string",
+                    "description": "Label to signify all items in the page title."
+                },
+                "item_updated": {
+                    "type": "string",
+                    "description": "Label used when an item is updated."
+                },
+                "item_added": {
+                    "type": "string",
+                    "description": "Label used when an item is added."
+                },
+                "item_deleted": {
+                    "type": "string",
+                    "description": "Label used when an item is deleted."
+                }
+            },
+            "additionalProperties": {
+                "type": "string"
+            }
+        },
+        "show_in_menu": {
+            "type": "boolean",
+            "description": "Whether to show the model in the admin menu. Optional. Default true.",
+            "default": true
+        },
+        "parent": {
+            "type": "string",
+            "description": "Parent menu slug when the model is a submenu. Optional. Use with show_in_menu set to true."
+        },
+        "menu_position": {
+            "type": "integer",
+            "description": "The position in the menu where the model should appear. Optional. Used for top-level menus only."
+        },
+        "menu_icon": {
+            "type": "string",
+            "description": "Menu icon for top-level menus. Supports Dashicons (dashicons-icon-name), Font Awesome free (fa fa-home), SVG data URI, custom URL, or none."
+        },
+        "capability": {
+            "type": "string",
+            "description": "Capability to access the menu and create/edit/delete models. Default edit_posts.",
+            "default": "edit_posts"
+        },
+        "supports": {
+            "type": "array",
+            "description": "Features the model supports. Optional.",
+            "items": {
+                "type": "string",
+                "enum": ["author", "published_date", "modified_date"]
+            },
+            "uniqueItems": true
+        },
+        "columns": {
+            "type": "object",
+            "description": "Custom table columns. Key is the column name (must match field IDs). Value is the MySQL data type. Do not include the ID column.",
+            "additionalProperties": {
+                "type": "string",
+                "description": "MySQL column type, e.g. TEXT, VARCHAR(255), INT, DECIMAL(10,2)."
+            }
+        },
+        "keys": {
+            "type": "array",
+            "description": "Column names to index. Optional. Do not index unrestricted TEXT/BLOB columns without a prefix length.",
+            "items": {
+                "type": "string"
+            },
+            "uniqueItems": true
+        },
+        "modified": {
+            "type": ["integer", "string"],
+            "description": "Last modified timestamp. Used by local JSON sync."
+        }
+    },
+    "additionalProperties": true
+}
