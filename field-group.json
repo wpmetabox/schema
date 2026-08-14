@@ -326,7 +326,8 @@
             "description": "Custom table settings for storing field values outside post/term/user meta.",
             "properties": {
                 "enable": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Whether custom table storage is enabled. For field groups on a code-registered model, this also means MB Builder may manage that model table."
                 },
                 "name": {
                     "type": "string"
