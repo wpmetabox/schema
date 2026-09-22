@@ -132,6 +132,10 @@
         "modified": {
             "type": ["integer", "string"],
             "description": "Last modified timestamp. Used by local JSON sync."
+        },
+        "private": {
+            "type": "boolean",
+            "description": "If true, Meta Box still loads and registers this file from Local JSON, but hides it from the Sync available UI. Use this for theme or plugin models that must not be synced to the database."
         }
     },
     "additionalProperties": true

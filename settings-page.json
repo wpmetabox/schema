@@ -140,6 +140,14 @@
         "network": {
             "type": "boolean",
             "description": "Whether to show the settings page in the network admin. Optional. Default false."
+        },
+        "modified": {
+            "type": "number",
+            "description": "Last modified timestamp. Used by Local JSON sync."
+        },
+        "private": {
+            "type": "boolean",
+            "description": "If true, Meta Box still loads and registers this file from Local JSON, but hides it from the Sync available UI. Use this for theme or plugin settings pages that must not be synced to the database."
         }
     }
 }
