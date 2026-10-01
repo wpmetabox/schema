@@ -18,11 +18,12 @@
                     "properties": {
                         "object_type": {
                             "type": "string",
-                            "description": "The object type the relationship is created from/to: post (default), term or user. Optional.",
+                            "description": "The object type the relationship is created from/to: post (default), term, user, or model. Optional.",
                             "enum": [
                                 "post",
                                 "term",
-                                "user"
+                                "user",
+                                "model"
                             ]
                         },
                         "post_type": {
@@ -119,6 +120,10 @@
                                     }
                                 }
                             ]
+                        },
+                        "model": {
+                            "type": "string",
+                            "description": "The custom model name if the object_type is set to model. Optional."
                         }
                     }
                 }
